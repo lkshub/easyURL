@@ -1,0 +1,19 @@
+{
+  "name": "easy_url",
+  "version": "1.0.0",
+  "description": "A tinyurl-like service for converting long urls to much shorter ones and vice versa.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lkshub/easyURL.git"
+  },
+  "author": "Kai Lu <lk930121@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lkshub/easyURL/issues"
+  },
+  "homepage": "https://github.com/lkshub/easyURL#readme"
+}
