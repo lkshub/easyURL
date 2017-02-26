@@ -7,9 +7,10 @@ var fs = require("fs");
 db.connectDB();
 
 app.get('/', function(req, res){
-	res.sendFile(__dirname + "/"+"index.html");
+	res.sendFile("./html/index.html");
 })
 
 app.post('/generate', function(req, res){
-	
+	var longURL = req.body.longURL;
+
 })
