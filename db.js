@@ -54,10 +54,12 @@ module.exports = {
     MongoClient.connect(url, function(err, db) {
       assert.equal(null, err);
 
-      var long_url = findLong(db, short_url, function(long_url){
+      findLong(db, short_url, function(long_url){
         if (long_url == null){
+          console.log(long_url+" is not in DB");
           callback( { exist : false } ); 
         }else{
+          console.log(long_url+" is in DB");
           callback( { exist : true, longURL : long_url} );
         }
       });

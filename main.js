@@ -13,9 +13,16 @@ app.get('/', function(req, res){
 	res.sendFile(__dirname+"/html/index.html");
 })
 app.get('/[a-z]{6}', function(req, res){
+	console.log("has the short request!");
 	db.retrieveLongURL(req.url.substring(1,7), function(result){
 		if(result.exist){
-			res.redirect('http://'+result.longURL);
+			if(result.longURL.startsWith('http(s)?://') ){
+				console.log("the url has http!");
+				res.redirect(result.longURL);
+			}else {
+				console.log("the url has no http");
+				res.redirect('http://'+ result.longURL);
+			}
 		}
 	});
 	
