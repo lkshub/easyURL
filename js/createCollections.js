@@ -12,13 +12,28 @@ var createConnections = function(db, callback) {
   db.createCollection("customizedCollection",
     function(err, results) {
       console.log("Customized URL Collection created.");
-      callback();
     }
   );
+  var customizedCollection = db.collection('customizedCollection');
+  // Create the index
+  customizedCollection.createIndex(
+    { shortURL : 1 , longURL : 1 }, function(err, result) {
+    console.log(result);
+  });
+
+  
   db.createCollection("mainCollection",
     function(err, results) {
       console.log("main URL Collection created.");
-      callback();
     }
   );
+
+  var mainCollection = db.collection('mainCollection');
+  // Create the index
+  mainCollection.createIndex(
+    { shortURL : 1 , longURL : 1 }, function(err, result) {
+    console.log(result);
+  });
+
+  callback();
 };
