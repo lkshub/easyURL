@@ -9,6 +9,8 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 db.connectDB();
 
+app.use(express.static('./'));
+
 app.get('/', function(req, res){
 	console.log('received index page request');
 	res.sendFile(__dirname+"/html/index.html");
