@@ -17,6 +17,11 @@
   },
   "homepage": "https://github.com/lkshub/easyURL#readme",
   "dependencies": {
-    "bootstrap": "^3.3.7"
+    "assert": "^1.4.1",
+    "body-parser": "^1.17.1",
+    "bootstrap": "^3.3.7",
+    "express": "^4.15.2",
+    "fs": "0.0.1-security",
+    "mongodb": "^2.2.24"
   }
 }
