@@ -1,0 +1,6 @@
+#mongodb data files
+data/
+
+#node_module files
+node_modules/
+

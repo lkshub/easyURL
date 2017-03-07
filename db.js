@@ -24,29 +24,18 @@ module.exports = {
     MongoClient.connect(url, function(err, db) {
       assert.equal(null, err);
 
-      findShort(db, long_url, function (short_url){
-        if (short_url == null){
+      randomSixDigit(db, function(result){
+        console.log("generateNewURL: " +result);
+        short_url  = result;
+        var mainCollection = db.collection('mainCollection');
 
-          randomSixDigit(db, function(result){
-            console.log("generateNewURL: " +result);
-            short_url  = result;
-            var mainCollection = db.collection('mainCollection');
+        mainCollection.insertOne({longURL:long_url, shortURL:short_url}, function(err, r) {
+            assert.equal(null, err);
+            assert.equal(1, r.insertedCount);
+        })
 
-            mainCollection.insertOne({longURL:long_url, shortURL:short_url}, function(err, r) {
-                assert.equal(null, err);
-                assert.equal(1, r.insertedCount);
-            })
-
-            callback( {isNew : true, shortURL: short_url } );
-            })
-
-        }else{
-          console.log("Already found");
-          callback( {isNew : false, shortURL: short_url } );
-        }
-      });
-      
-
+        callback( {shortURL: short_url } );
+      })
     });
   },
   retrieveLongURL : function(short_url, callback){
