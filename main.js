@@ -13,7 +13,7 @@ app.use(express.static('./'));
 
 app.get('/', function(req, res){
 	console.log('received index page request');
-	res.sendFile(__dirname+"/html/index.html");
+	res.sendFile(__dirname+"/views/index.html");
 })
 app.get('/[a-z]{6}', function(req, res){
 	console.log("has the short request!");
