@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/lkshub/easyURL/issues"
   },
-  "homepage": "https://github.com/lkshub/easyURL#readme"
+  "homepage": "https://github.com/lkshub/easyURL#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
 }
