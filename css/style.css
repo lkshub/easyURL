@@ -3,13 +3,15 @@ img, embed, object, video{
 }
 body{
 	font-family: 'Open Sans', sans-serif;
-
+	height:100%;
 }
 
 
 .head-title{
 	color:#039BE5;
 	font-weight: 700;
+	margin: 10px;
+	margin-right: 20px;
 }
 .light-font{
 	font-weight: 100;
@@ -36,4 +38,21 @@ body{
 
 .margin-bottom-35{
 	margin-bottom: 35px;
+}
+
+.no-padding{
+	padding: 0px;
+}
+
+.display-flex{
+	display: flex;
+}
+
+.no-margin{
+	margin:0px;
+}
+.navbar{
+	background: white;
+	margin: 0px;
+	border-width: 0px;
 }
