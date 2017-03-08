@@ -1,16 +1,32 @@
 var app = angular.module('EasyURLApp', ['ngRoute','ngAnimate']);
 
+app.component('home', {
+  templateUrl: 'views/home.html'
+});
+app.component('customize', {
+  templateUrl: 'views/customize.html'
+});
+app.component('introduction', {
+  templateUrl: 'views/introduction.html'
+});
+
+
 app.config(function ($routeProvider) { 
   $routeProvider 
     .when('/', { 
       //controller: 'HomeController', 
-      templateUrl: 'views/home.html',
+      template: '<home></home><introduction></introduction>',
       animation: 'first'
     }) 
     .when('/customize', { 
       //controller: 'HomeController', 
-      templateUrl: 'views/customize.html',
+      template: '<customize></customize><introduction></introduction>',
       animation: 'second'
+    })
+    .when('/analyze', { 
+      //controller: 'HomeController', 
+      template: '<customize></customize>',
+      animation: 'third'
     })
     .otherwise({ 
       redirectTo: '/' 
