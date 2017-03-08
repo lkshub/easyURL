@@ -4,6 +4,7 @@ img, embed, object, video{
 body{
 	font-family: 'Open Sans', sans-serif;
 	height:100%;
+	overflow: hidden;
 }
 
 
@@ -51,8 +52,80 @@ body{
 .no-margin{
 	margin:0px;
 }
+
+.no-margin-horizontal{
+	margin-left: 0px;
+	margin-right: 0px;
+}
 .navbar{
 	background: white;
 	margin: 0px;
 	border-width: 0px;
+}
+
+.view{
+	position: absolute;
+	width: 100%;
+  transition: 300ms;
+
+}
+.row{
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+/* First animation*/
+.first .view.ng-enter{
+  left: -100%;
+}
+
+.first .view.ng-enter.ng-enter-active{
+  left: 0%;
+}
+
+.first .view.ng-leave{
+  left: 0%;
+}
+
+.first .view.ng-leave.ng-leave-active{
+  left: 100%;
+}
+
+/* Second animation*/
+.second .view.ng-enter{
+  left: 100%;
+}
+
+.second .view.ng-enter.ng-enter-active{
+  left: 0%;
+}
+
+.second .view.ng-leave{
+  left: 0%;
+}
+
+.second .view.ng-leave.ng-leave-active{
+  left: -100%;
+}
+
+/* Third animation*/
+.third .view.ng-enter{
+  top: 100%;
+}
+
+.third .view.ng-enter.ng-enter-active{
+  top: 0%;
+}
+
+.third .view.ng-leave{
+  top: 0%;
+}
+
+.third .view.ng-leave.ng-leave-active{
+  top: -100%;
+}
+
+/* Third animation*/
+.welcome .view.ng-enter{
+  opacity: 0;
 }

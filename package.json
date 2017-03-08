@@ -18,6 +18,7 @@
   "homepage": "https://github.com/lkshub/easyURL#readme",
   "dependencies": {
     "angular": "^1.6.2",
+    "angular-animate": "^1.6.2",
     "angular-route": "^1.6.2",
     "assert": "^1.4.1",
     "body-parser": "^1.17.1",
