@@ -15,7 +15,7 @@ app.get('/', function(req, res){
 	console.log('received index page request');
 	res.sendFile(__dirname+"/views/index.html");
 })
-app.get('/[a-z]{6}', function(req, res){
+app.get('/[a-z|A-Z|0-9]{6}', function(req, res){
 	console.log("has the short request!");
 	db.retrieveLongURL(req.url.substring(1,7), function(result){
 		if(result.exist){
@@ -28,6 +28,7 @@ app.get('/[a-z]{6}', function(req, res){
 app.post('/generate', urlencodedParser, function(req, res){
 
 	var long_url = req.body.longURL;
+	console.log(req);
 	db.generateNewURL(long_url, function(result){
 		res.end(JSON.stringify(result));
 	});

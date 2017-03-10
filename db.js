@@ -28,7 +28,7 @@ module.exports = {
         console.log("generateNewURL: " +result);
         short_url  = result;
         var mainCollection = db.collection('mainCollection');
-
+        console.log(long_url + " "+ short_url);
         mainCollection.insertOne({longURL:long_url, shortURL:short_url}, function(err, r) {
             assert.equal(null, err);
             assert.equal(1, r.insertedCount);

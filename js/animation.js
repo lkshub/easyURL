@@ -1,8 +1,8 @@
 $(".nav a").on("click", function(){
    $(".nav").find(".active").removeClass("active");
-   $(".navbar button").addClass('collapsed');
-   $(".navbar button").removeClass('active');
-   $(".navbar button").attr({
+   $(".navbar-header button").addClass('collapsed');
+   $(".navbar-header button").removeClass('active');
+   $(".navbar-header button").attr({
    	"aria-expanded": 'false'
    });
    $("#navbar-collapse").removeClass('in');
@@ -11,4 +11,6 @@ $(".nav a").on("click", function(){
    });
    $(this).parent().addClass("active");
 });
+
+
 
