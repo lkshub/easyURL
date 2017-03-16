@@ -15,6 +15,12 @@ app.get('/', function(req, res){
 	console.log('received index page request');
 	res.sendFile(__dirname+"/views/index.html");
 })
+
+app.get('/resume', function(req, res){
+	res.sendFile(__dirname + '/resource/document/resume.pdf');
+})
+
+
 app.get('/[a-z|A-Z|0-9]{6}', function(req, res){
 	console.log("has the short request!");
 	db.retrieveLongURL(req.url.substring(1,7), function(result){
@@ -25,6 +31,8 @@ app.get('/[a-z|A-Z|0-9]{6}', function(req, res){
 	
 	
 })
+
+
 app.post('/generate', urlencodedParser, function(req, res){
 
 	var long_url = req.body.longURL;
