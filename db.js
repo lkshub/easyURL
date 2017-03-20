@@ -54,8 +54,23 @@ module.exports = {
       
     })
   },
-  customizeURL : function(long_url, short_url){
+  customizeURL : function(long_url, short_url, callback){
+    MongoClient.connect(url, function(err, db) {
+      findLong(db, short_url, function(res){
+        if(res == null) {
+          var customizeCollection = db.collection('customizeCollection');
+          customizeCollection.insertOne({longURL:long_url, shortURL:short_url}, function(err, r) {
+            assert.equal(null, err);
+            assert.equal(1, r.insertedCount);
+          })
+          callback({inserted : true});
+        }else{
+          callback({inserted : false, isDuplicate : true});
+        }
+      })
 
+    })
+    
   }
 
 }

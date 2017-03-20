@@ -43,6 +43,17 @@ app.post('/generate', urlencodedParser, function(req, res){
 	
 })
 
+app.post('/customize', urlencodedParser, function(req, res){
+
+	var long_url = req.body.longURL;
+	var short_url = req.body.shortURL;
+	console.log(req);
+	db.customizeURL(long_url, short_url, function(result){
+		res.end(JSON.stringify(result));
+	});
+	
+})
+
 var server = app.listen(8081, function () {
 	    var host = server.address().address
 	    var port = server.address().port

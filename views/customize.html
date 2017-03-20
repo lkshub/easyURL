@@ -3,17 +3,24 @@
       			<h1 class="white-color light-font padding-left-20">Customize your easy URL</h1>
       		</div>
       		<div class="row margin-bottom-35">
-      			<form action = "/generate" method = "POST">
-	      			<div class="col-md-9  padding-20">
-	      				<input type="url" class="form-control" placeholder="Please enter a url starts with http/https"></input>
-		      		</div>
-		      		<div class="col-md-3 padding-20">
-		      			<button type="submit" class="btn btn-default" >Shorten URL</button>
-                                    
-		      		</div>
-                              <div class="col-md-9  padding-20">
-                                    <input type="url" class="form-control" placeholder="Please enter a url starts with http/https"></input>
+      			<form action = "/customize" method = "POST">
+	      			
+                             <div class="row">
+                                   <div class="col-md-9  padding-20">
+                                          <input type="url" name="longURL" class="form-control" id="long-customize" placeholder="Please enter a url starts with http/https. For example: https://www.google.com." value=""></input>
+                                    </div>
+                             </div> 
+		      		
+                              <div class="row">
+                                    <div class="col-md-6 input-group padding-20">
+                                          <span class="input-group-addon" >ezurls.cc/</span>
+                                          <input type="text" name="shortURL" id="short-customize" class="form-control" placeholder="Please enter your customized short. For example: google." value=""></input>
+                                    </div>
+                                    <div class="col-md-3 padding-20">
+                                          <button type="submit" class="btn btn-default" id="submit-btn-customize" disabled="disabled">Shorten URL</button>
+                                    </div>
                               </div>
+                              
       			</form>
                         
       		</div>
