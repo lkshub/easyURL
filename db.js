@@ -63,7 +63,7 @@ module.exports = {
             assert.equal(null, err);
             assert.equal(1, r.insertedCount);
           })
-          callback({inserted : true});
+          callback({inserted : true, longURL: long_url, shortURL: short_url});
         }else{
           callback({inserted : false, isDuplicate : true});
         }

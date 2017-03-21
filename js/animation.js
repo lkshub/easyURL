@@ -35,7 +35,6 @@ $(document).on('input', "#long-customize, #short-customize", function(e){
 $(document).on('click', '#submit-btn-home', function(e){
    var long_url  = $("#form-home").serializeArray()[0].value;
    if(validateUrl(long_url)){
-      console.log('going to ajax');
       $.ajax({
          url: '/generate',
          type: 'POST',
@@ -44,7 +43,6 @@ $(document).on('click', '#submit-btn-home', function(e){
       })
       .done(function(res) {
          console.log("success");
-         console.log(res);
          var modal = $('#modal-success');
          modal.find('.modal-body').text("Your short url: ");
          var link = $('<a/>');
@@ -52,9 +50,44 @@ $(document).on('click', '#submit-btn-home', function(e){
          link.attr({
             href: "http://ezurls.cc/"+res.shortURL
          });
-         console.log(link);
          modal.find('.modal-body').append(link);
          $('#modal-success').modal('show');
+      })
+      .fail(function() {
+         console.log("error");
+      })
+      .always(function() {
+         console.log("complete");
+      });
+   }
+});
+
+$(document).on('click', '#submit-btn-customize', function(e){
+   var long_url  = $("#form-customize").serializeArray()[0].value;
+   var short_url = $("#form-customize").serializeArray()[1].value;
+   console.log($("#form-customize").serializeArray());
+   if(validateUrl(long_url)){
+      $.ajax({
+         url: '/customize',
+         type: 'POST',
+         dataType: 'json',
+         data: {longURL : long_url, shortURL : short_url},
+      })
+      .done(function(res) {
+         console.log("success");
+         console.log(res);
+         if(res.inserted){
+            var modal = $('#modal-success');
+            modal.find('.modal-body').text("Your short url: ");
+            var link = $('<a/>');
+            link.text("ezurls.cc/"+res.shortURL);
+            link.attr({
+               href: "http://ezurls.cc/"+res.shortURL
+            });
+            console.log(link);
+            modal.find('.modal-body').append(link);
+            $('#modal-success').modal('show');
+         }
       })
       .fail(function() {
          console.log("error");
