@@ -38,7 +38,7 @@ app.post('/generate', urlencodedParser, function(req, res){
 	var long_url = req.body.longURL;
 	console.log(req);
 	db.generateNewURL(long_url, function(result){
-		res.end(JSON.stringify(result));
+		res.send(JSON.stringify(result));
 	});
 	
 })
