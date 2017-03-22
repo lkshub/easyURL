@@ -10,14 +10,14 @@ module.exports = {
     // Use connect method to connect to the server
     MongoClient.connect(url, function(err, db) {
       assert.equal(null, err);
-      console.log("Connected successfully to mongodb server");
+      //console.log("Connected successfully to mongodb server");
     });
   },
   closeDB : function(){
     MongoClient.connect(url, function(err, db) {
       assert.equal(null, err);
       db.close();
-      console.log("Successfully closed the server");
+      //console.log("Successfully closed the server");
     });
   },
   generateNewURL : function(long_url, callback){
@@ -44,10 +44,10 @@ module.exports = {
 
       findLong(db, short_url, function(long_url){
         if (long_url == null){
-          console.log(long_url+" is not in DB");
+          //console.log(long_url+" is not in DB");
           callback( { exist : false } ); 
         }else{
-          console.log(long_url+" is in DB");
+          //console.log(long_url+" is in DB");
           callback( { exist : true, longURL : long_url} );
         }
       });
