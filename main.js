@@ -21,15 +21,15 @@ app.get('/resume', function(req, res){
 })
 
 
-app.get('/[a-z|A-Z|0-9]{6}', function(req, res){
+app.get('/[a-z|A-Z|0-9]+', function(req, res){
 	console.log("has the short request!");
 	db.retrieveLongURL(req.url.substring(1,7), function(result){
 		if(result.exist){
 			res.redirect(result.longURL);
+		}else{
+  			res.redirect('/#!/notfound');
 		}
 	});
-	
-	
 })
 
 
@@ -53,6 +53,10 @@ app.post('/customize', urlencodedParser, function(req, res){
 	});
 	
 })
+
+app.get('*', function(req, res){
+  res.redirect('/#!/notfound');
+});
 
 var server = app.listen(8081, function () {
 	    var host = server.address().address

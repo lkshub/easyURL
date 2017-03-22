@@ -9,6 +9,9 @@ app.component('customize', {
 app.component('introduction', {
   templateUrl: 'views/introduction.html'
 });
+app.component('notfound', {
+  templateUrl: 'views/404.html'
+});
 
 
 app.config(function ($routeProvider) { 
@@ -25,8 +28,12 @@ app.config(function ($routeProvider) {
     })
     .when('/analyze', { 
       //controller: 'HomeController', 
-      template: '<customize></customize>',
+      template: '<customize></customize><introduction></introduction>',
       animation: 'third'
+    })
+    .when('/notfound', { 
+      //controller: 'HomeController', 
+      template: '<notfound></notfound><introduction></introduction>'
     })
     .otherwise({ 
       redirectTo: '/' 

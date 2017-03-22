@@ -82,7 +82,8 @@ $(document).on('click', '#submit-btn-customize', function(e){
             var link = $('<a/>');
             link.text("ezurls.cc/"+res.shortURL);
             link.attr({
-               href: "http://ezurls.cc/"+res.shortURL
+               href: "http://ezurls.cc/"+res.shortURL,
+               target: "_blank"
             });
             console.log(link);
             modal.find('.modal-body').append(link);
