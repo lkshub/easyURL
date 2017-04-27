@@ -58,8 +58,12 @@ app.get('*', function(req, res){
   res.redirect('/#!/notfound');
 });
 
-var server = app.listen(80, function () {
-	    var host = server.address().address
-	    var port = server.address().port
-	    console.log("Example app listening at http://%s:%s", host, port)
-})
+if (module === require.main) {
+  // [START server]
+  // Start the server
+  const server = app.listen(process.env.PORT || 8081, () => {
+    const port = server.address().port;
+    console.log(`App listening on port ${port}`);
+  });
+  // [END server]
+}
