@@ -23,7 +23,13 @@ app.get('/resume', function(req, res){
 
 app.get('/[a-z|A-Z|0-9]+', function(req, res){
 	//console.log("has the short request!");
-	db.retrieveLongURL(req.url.substring(1,7), function(result){
+	res.redirect('/urls/'+req.url.substring(1,7));
+	
+})
+
+app.get('/urls/[a-z|A-Z|0-9]+', function(req, res){
+	//console.log("has the short request!");
+	db.retrieveLongURL(req.url.substring(6,12), function(result){
 		if(result.exist){
 			res.redirect(result.longURL);
 		}else{
@@ -31,7 +37,6 @@ app.get('/[a-z|A-Z|0-9]+', function(req, res){
 		}
 	});
 })
-
 
 app.post('/generate', urlencodedParser, function(req, res){
 
